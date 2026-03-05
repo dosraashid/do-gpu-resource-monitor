@@ -2,11 +2,16 @@ import urllib.request
 import urllib.error
 import json
 import time
+import os
 
 # ==========================================
-# 1. CONFIGURATION: Hardcode your token here
+# 1. CONFIGURATION: Environment Variable
 # ==========================================
-DO_API_TOKEN = "Enter your API Token Here"
+# Securely fetch the API token from the DigitalOcean Functions environment
+DO_API_TOKEN = os.getenv("DO_API_TOKEN")
+
+if not DO_API_TOKEN:
+    print("WARNING: DO_API_TOKEN environment variable is missing or empty!")
 # ==========================================
 
 def call_do_api(endpoint):
@@ -17,7 +22,9 @@ def call_do_api(endpoint):
         url = f"https://api.digitalocean.com/v2/{endpoint}"
         
     req = urllib.request.Request(url)
-    req.add_header("Authorization", f"Bearer {DO_API_TOKEN}")
+    # Safely handle the case where the token is None
+    token = DO_API_TOKEN if DO_API_TOKEN else ""
+    req.add_header("Authorization", f"Bearer {token}")
     req.add_header("Content-Type", "application/json")
     try:
         with urllib.request.urlopen(req, timeout=10) as response:
@@ -174,7 +181,7 @@ def main(args):
             reason = ""
 
             # ==========================================
-            # 4. FINOPS LOGIC: DUAL PATH
+            # 4. RESOURCE OPTIMIZATION LOGIC: DUAL PATH
             # ==========================================
             if dcgm_available:
                 # PATH A: We have Ground Truth GPU Data
