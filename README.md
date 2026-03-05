@@ -9,6 +9,6 @@ A serverless, AI-driven infrastructure tool that audits DigitalOcean GPU Droplet
 * **GenAI Ready:** Includes strict OpenAPI 3.0 schemas designed for DigitalOcean's GenAI Platform.
 
 ## 🛠️ Deployment Guide
-1. Deploy `main.py` as a DigitalOcean Serverless Function. Replace the placeholder token with a read-only DO API token.
+1. Deploy `main.py` as a DigitalOcean Serverless Function. Add an environment variable named `DO_API_TOKEN` in the DigitalOcean Functions settings with a read-only DO API token.
 2. Set up a GenAI Agent using the files in the `agent_setup/` directory for instructions and schemas.
 3. Ask your agent: *"Give me a health and utilization summary of my GPU fleet."*
