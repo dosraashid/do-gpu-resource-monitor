@@ -1,0 +1,1 @@
+Use this tool to retrieve real-time resource categorization, cost data, and hardware telemetry for all GPU and high-compute Droplets. Call this immediately when the user asks to 'audit the fleet', 'find idle servers', 'optimize resources', or asks about GPU health (temperature, VRAM, utilization).

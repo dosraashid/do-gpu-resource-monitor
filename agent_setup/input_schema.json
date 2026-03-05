@@ -1,0 +1,13 @@
+{
+  "parameters": [
+    {
+      "name": "action",
+      "in": "query",
+      "description": "Always pass the string 'run_audit' to trigger the infrastructure audit.",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    }
+  ]
+}

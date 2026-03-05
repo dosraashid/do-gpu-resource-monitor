@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "summary": { "type": "string" },
+    "insights": {
+      "type": "object",
+      "properties": {
+        "Idle": { "type": "integer" },
+        "Over provisioned": { "type": "integer" },
+        "Optimized": { "type": "integer" },
+        "Under provisioned": { "type": "integer" },
+        "Unknown (Off or No Agent)": { "type": "integer" }
+      }
+    },
+    "gpu_inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "ip_address": { "type": "string" },
+          "size_slug": { "type": "string" },
+          "hourly_cost": { "type": "number" },
+          "dcgm_accessible": { "type": "boolean" },
+          "efficiency_status": { "type": "string" },
+          "efficiency_reason": { "type": "string" },
+          "metrics": {
+            "type": "object",
+            "properties": {
+              "host_system": {
+                "type": "object",
+                "properties": {
+                  "cpu_avg_percent": { "type": "number" },
+                  "memory_utilization_percent": { "type": "number" },
+                  "load_15_min": { "type": "number" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
