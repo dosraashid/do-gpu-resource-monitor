@@ -123,7 +123,7 @@ def main(args):
         size_slug = size_slug.lower()
         
         # ONLY process high-compute droplets
-        if "gpu" in size_slug or "so-16vcpu-128gb-intel" in size_slug or "so-32vcpu-256gb-intel" in size_slug:
+        if "gpu" in size_slug:
             d_id = d.get("id")
             name = d.get("name")
             hourly_price = d.get("size", {}).get("price_hourly", 0.0)
