@@ -253,7 +253,7 @@ def main(args):
     return {
         "statusCode": 200,
         "body": {
-            "summary": f"Analyzed {len(gpu_inventory)} high-compute nodes.",
+            "summary": f"Analyzed {len(gpu_inventory)} high-compute nodes out of {len(droplets)} total Droplets.",
             "insights": category_counts,
             "gpu_inventory": gpu_inventory
         }
